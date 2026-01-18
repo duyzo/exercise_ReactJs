@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Bai 1,2
+      let massM = 78;
+      let heightM = 1.69;
+
+      let massJ = 92;
+      let heightJ = 1.95;
+
+      let BMI = (mass, height) => {
+        return mass / (height * height);
+      };
+
+      let BMI_Mark = BMI(massM, heightM);
+      let BMI_John = BMI(massJ, heightJ);
+
+      let markHigherBMI =
+        BMI_Mark > BMI_John
+          ? `Mark's BMI (${BMI_Mark}) is higher than John's (${BMI_John})!`
+          : `Mark's BMI (${BMI_John}) is higher than John's (${BMI_Mark})!`;
+
+      console.log(markHigherBMI);
+
+      // Bai 3
+      let dolphins_score = [96, 108, 89];
+      let koalas_score = [88, 91, 110];
+
+      let dolphins_score1 = [97, 112, 101];
+      let koalas_score1 = [109, 95, 123];
+
+      let avg = (score) => {
+        let sum = 0;
+        score.forEach((point) => {
+          sum += point;
+        });
+        return sum / score.length;
+      };
+      let avg_Dol = avg(dolphins_score1);
+      let avg_Koalas = avg(koalas_score1);
+
+      let result = "No team win";
+
+      if (avg_Dol > avg_Koalas && avg_Dol >= 100) {
+        result = "Dolphins win";
+      } else if (avg_Dol < avg_Koalas && avg_Koalas >= 100) {
+        result = "Koalas win";
+      } else if (avg_Dol >= 100 && avg_Koalas >= 100) {
+        result = "draw";
+      }
+
+      console.log(result);
+
+      //Bai 4
+      let bills = [275, 40, 430];
+
+      bills.forEach((bill) => {
+        tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+        console.log(
+          `The bill was ${bill}, the tip was ${tip}, and the total value ${bill + tip}`,
+        );
+      });
+    </script>
+  </body>
+</html>

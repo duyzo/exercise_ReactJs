@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Bài 1
+      let calcAverage = (scores) => {
+        let total = scores.reduce((sum, scores) => {
+          return sum + scores;
+        }, 0);
+        return total / scores.length;
+      };
+
+      let dolphins1 = [44, 23, 71];
+      let koalas1 = [65, 54, 49];
+
+      let avgDolphin1 = calcAverage(dolphins1);
+      let avgKoalas1 = calcAverage(koalas1);
+
+      let checkWinner = (avgDolphin, avgKoalas) => {
+        let dolphinsWin = avgDolphin >= avgKoalas * 2;
+        let koalasWin = avgDolphin * 2 <= avgKoalas;
+        if (dolphinsWin) {
+          console.log(`Dolphin win (${avgDolphin})`);
+        } else if (koalasWin) {
+          console.log(`Koalas win (${avgKoalas})`);
+        } else {
+          console.log(`No team win`);
+        }
+      };
+
+      checkWinner(avgDolphin1, avgKoalas1);
+
+      //Bài 2
+      let calcTip = (bill) =>
+        bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+      let bills = [275, 40, 430];
+
+      let tips = bills.map((bill) => calcTip(bill));
+
+      let total = bills.map((bill, index) => bill + tips[index]);
+
+      console.log(bills);
+      console.log(tips);
+      console.log(total);
+
+      //Bài 3
+      const mark = {
+        fullName: "Kaito Mark",
+        mass: 78,
+        height: 1.69,
+
+        calcBMI: function () {
+          this.bmi = this.mass / (this.height * this.height);
+          return this.bmi;
+        },
+      };
+
+      const john = {
+        fullName: "Kaito John",
+        mass: 92,
+        height: 1.95,
+
+        calcBMI: function () {
+          this.bmi = this.mass / (this.height * this.height);
+          return this.bmi;
+        },
+      };
+
+      mark.calcBMI();
+      john.calcBMI();
+
+      if (mark.bmi > john.bmi) {
+        console.log(
+          `${mark.fullName}'s BMI (${mark.bmi}) is higher than ${john.fullName}'s (${john.bmi})`,
+        );
+      } else if (john.bmi > mark.bmi) {
+        console.log(
+          `${john.fullName}'s BMI (${john.bmi}) is higher than ${mark.fullName}'s (${mark.bmi})`,
+        );
+      }
+      //Bài 4
+      let bills2 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+      let tips2 = [];
+      let totals = [];
+      let calcTip2 = (bill) =>
+        bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+
+      bills2.forEach((bill) => {
+        let tip = calcTip(bill);
+        tips2.push(tip);
+        totals.push(bill + tip);
+      });
+
+      console.log(bills2);
+      console.log(tips2);
+      console.log(totals);
+
+      let calcAverage2 = (arr) =>
+        arr.reduce((sum, value) => sum + value, 0) / arr.length;
+
+      console.log("Average:", calcAverage2(totals));
+
+      //Bài 5
+      let printForecast = (temperature) => {
+        let x =
+          temperature.map((temp, i) => `${temp} in ${i + 1} days`).join(" ") +
+          " ...";
+        console.log(x);
+      };
+
+      printForecast([17, 21, 23]);
+      printForecast([12, 5, -5, 0, 4]);
+    </script>
+  </body>
+</html>
