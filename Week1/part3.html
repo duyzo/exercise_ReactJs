@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        let printForecast = temperature => {
+            let x = temperature.map((temp, i) => `${temp} in ${i + 1} days`).join(' ') + ' ...';
+            console.log(x);
+        }
+
+        printForecast([17, 21, 23]);
+        printForecast([12, 5, -5, 0, 4]);
+</body>
+</html>
