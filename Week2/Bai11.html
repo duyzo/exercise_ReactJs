@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const game = {
+        team1: "Bayern Munich",
+        team2: "Borrussia Dortmund",
+        players: [
+          [
+            "Neuer",
+            "Pavard",
+            "Martinez",
+            "Alaba",
+            "Davies",
+            "Kimmich",
+            "Goretzka",
+            "Coman",
+            "Muller",
+            "Gnarby",
+            "Lewandowski",
+          ],
+          [
+            "Burki",
+            "Schulz",
+            "Hummels",
+            "Akanji",
+            "Hakimi",
+            "Weigl",
+            "Witsel",
+            "Hazard",
+            "Brandt",
+            "Sancho",
+            "Gotze",
+          ],
+        ],
+        score: "4:0",
+        scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+        date: "Nov 9th, 2037",
+        odds: {
+          team1: 1.33,
+          x: 3.25,
+          team2: 6.5,
+        },
+      };
+
+      //1
+      let [players1, players2] = game.players;
+      console.log("Team 1 players:", players1);
+      console.log("Team 2 players:", players2);
+
+      //2
+      let [gk, ...fieldPlayers] = players1;
+      console.log("Goalkeeper:", gk);
+      console.log("Players:", fieldPlayers);
+
+      //3
+      let allPlayers = [...players1, ...players2];
+      console.log("All players 2 team:", allPlayers);
+
+      //4
+      let players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
+      console.log("All players team 1 after update:", players1Final);
+
+      //5
+      let { team1, x: draw, team2 } = game.odds;
+      console.log(team1, draw, team2);
+
+      //6
+      let printGoals = (...players) => {
+        console.log("List of goal scorers:");
+
+        players.forEach((player) => {
+          console.log(player);
+        });
+
+        console.log(`Total number of goals: ${players.length}`);
+      };
+
+      printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
+
+      //7
+      let team1Win = team1 > team2;
+      let team2Win = team1 < team2;
+      if (team1Win > team2Win) {
+        console.log(`${game.team1} have a higher chance of winning`);
+      } else if (team1Win < team2Win) {
+        console.log(`${game.team2} have a higher chance of winning`);
+      }
+    </script>
+  </body>
+</html>

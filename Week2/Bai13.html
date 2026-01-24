@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const gameEvents = new Map([
+        [17, "⚽ GOAL"],
+        [36, "🔁 Substitution"],
+        [47, "⚽ GOAL"],
+        [61, "🔁 Substitution"],
+        [64, "🔶 Yellow card"],
+        [69, "🔴 Red card"],
+        [70, "🔁 Substitution"],
+        [72, "🔁 Substitution"],
+        [76, "⚽ GOAL"],
+        [80, "⚽ GOAL"],
+        [92, "🔶 Yellow card"],
+      ]);
+
+      //1
+      let allEvent = Array.from(gameEvents.values());
+      let events = allEvent.filter(
+        (value, index, array) => array.indexOf(value) == index,
+      );
+      console.log(events);
+
+      //2
+      gameEvents.delete(64);
+      console.log(gameEvents);
+
+      //3
+      const timeArray = Array.from(gameEvents.keys());
+      let time = timeArray.filter((t) => timeArray.every((x) => t >= x))[0];
+      console.log(
+        `An event happened, on average, every ${time / gameEvents.size} minutes`,
+      );
+
+      //4
+      Array.from(gameEvents).forEach(([min, event]) => {
+        let x = min <= 45 ? "FIRST HALF" : "SECOND HALF";
+        console.log(`[${x}] ${min}: ${event}`);
+      });
+    </script>
+  </body>
+</html>
